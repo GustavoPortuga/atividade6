@@ -80,11 +80,17 @@ export default function PostCard({
       <div
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           alignItems: "center",
           marginTop: "1rem",
         }}
       >
+        {/* NOVA FEATURE: Exibição de likes e dislikes do DummyJSON */}
+        <div style={{ display: "flex", gap: "1rem", color: "var(--foreground)", opacity: 0.8 }}>
+          <span>👍 {post.reactions?.likes ?? 0} Likes</span>
+          <span>👎 {post.reactions?.dislikes ?? 0} Dislikes</span>
+        </div>
+
         <button
           onClick={handleLike}
           disabled={isLoading}
