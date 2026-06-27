@@ -1,0 +1,29 @@
+name: Pipeline de Integração Contínua (CI)
+
+on:
+  pull_request:
+    branches:
+      - principal
+
+jobs:
+  test-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Instalar dependências do Cliente
+        run: |
+          cd client
+          npm install
+
+      - name: Executar Testes do Frontend
+        run: |
+          cd client
+          npm test -- --watchAll=false
