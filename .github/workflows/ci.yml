@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - principal
+      - recurso/gostos-desgostos
 
 jobs:
   test-pipeline:
